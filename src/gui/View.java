@@ -147,4 +147,5 @@ public class View extends JFrame {
     public void setTransR(JRadioButton transR) {
         this.transR = transR;
     }
+
 }

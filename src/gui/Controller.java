@@ -1,8 +1,11 @@
 package gui;
 
+import cipher.Exception;
+import cipher.KeywordCipher;
 import cipher.ShiftCipher;
 import cipher.SubstitutionCipher;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.PrivateKey;
@@ -39,14 +42,23 @@ public class Controller implements ActionListener {
         if (v.getBencrypt() == e.getSource()) {
             if (this.v.getShiftR().isSelected()) {
                 m.setvMethod(new ShiftCipher(Integer.parseInt(v.getShift().getText())));
-            } else if (this.v.getSecretR().isSelected()){
+            } else if (this.v.getSecretR().isSelected()) {
                 m.setvMethod(new SubstitutionCipher(v.getSecret().getText()));
+            } else if (this.v.getKeywordR().isSelected()) {
+                try {
+
+                    m.setvMethod(new KeywordCipher(v.getKey().getText()));
+                } catch (Exception e1) {
+                    JOptionPane.showMessageDialog(null, "keyword Exception");
+                }
             }
 
 
-
-            this.v.getAusgabe().setText(this.m.getvMethod().encrypt(this.v.getEingabe().getText()));
-            //this.v.getAusgabe().setText(this.m.getvMethod().decrypt(this.v.getEingabe().getText()));
+            if (v.getcDecrypt().isSelected()) {
+                this.v.getAusgabe().setText(this.m.getvMethod().decrypt(this.v.getEingabe().getText()));
+            } else {
+                this.v.getAusgabe().setText(this.m.getvMethod().encrypt(this.v.getEingabe().getText()));
+            }
         }
     }
 

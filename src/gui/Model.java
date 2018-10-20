@@ -1,5 +1,6 @@
 package gui;
 
+import cipher.KeywordCipher;
 import cipher.MonoAlphabeticCipher;
 import cipher.SubstitutionCipher;
 
@@ -12,6 +13,7 @@ public class Model {
 
     public Model(){
         this.vMethod = new SubstitutionCipher("QWERTZßÜAUIOPSKLÖDFGBNMHJÄYXCV");
+
     }
 
     public String getKeyword() {
@@ -53,4 +55,5 @@ public class Model {
     public void setvMethod(MonoAlphabeticCipher vMethod) {
         this.vMethod = vMethod;
     }
+
 }
