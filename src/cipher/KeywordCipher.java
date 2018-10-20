@@ -13,7 +13,7 @@ public class KeywordCipher extends MonoAlphabeticCipher {
 
     public void creat(String key){
         if(this.keyword == key) {
-            this.newAlphabet="QWERAUPSIOBNMHKLÖDFGJTZßÜÄYXCV";
+            this.setSecretAlphabet("QWERAUPSIOBNMHKLÖDFGJTZßÜÄYXCV");
         }else{
             System.out.println("wrong");
         }
@@ -27,13 +27,8 @@ public class KeywordCipher extends MonoAlphabeticCipher {
     public void setKeyword(String keyword) {
         this.keyword = keyword;
     }
-    public String encrypt(String text) {
-        StringBuilder x = new StringBuilder();
-        for(int i = 0;i<text.length();i++) {
-            x.append(newAlphabet.charAt(super.getAlphabet().indexOf(text.toUpperCase().charAt(i))));
-        }
-        return x.toString();
-    }
+
+
     public static void main(String[] args) {
         KeywordCipher c = new KeywordCipher("bra");
         System.out.println("benni");
