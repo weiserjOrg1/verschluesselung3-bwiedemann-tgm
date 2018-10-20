@@ -22,18 +22,28 @@ public class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (v.getShiftR() == e.getSource()) {
             v.getSecret().setEnabled(false);
+            v.getKey().setEnabled(false);
             v.getShift().setEnabled(true);
         }
         if (v.getSecretR() == e.getSource()) {
             v.getShift().setEnabled(false);
+            v.getKey().setEnabled(false);
             v.getSecret().setEnabled(true);
         }
+        if (v.getKeywordR() == e.getSource()) {
+            v.getShift().setEnabled(false);
+            v.getSecret().setEnabled(false);
+            v.getKey().setEnabled(true);
+        }
+
         if (v.getBencrypt() == e.getSource()) {
             if (this.v.getShiftR().isSelected()) {
                 m.setvMethod(new ShiftCipher(Integer.parseInt(v.getShift().getText())));
-            } else {
+            } else if (this.v.getSecretR().isSelected()){
                 m.setvMethod(new SubstitutionCipher(v.getSecret().getText()));
             }
+
+
 
             this.v.getAusgabe().setText(this.m.getvMethod().encrypt(this.v.getEingabe().getText()));
             //this.v.getAusgabe().setText(this.m.getvMethod().decrypt(this.v.getEingabe().getText()));

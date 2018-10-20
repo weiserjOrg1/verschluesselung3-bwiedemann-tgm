@@ -26,7 +26,7 @@ public class View extends JFrame {
         this.shiftR = new JRadioButton("shift");
         this.keywordR = new JRadioButton("keyword");
         this.transR = new JRadioButton("transposition");
-
+        this.cDecrypt = new JCheckBox("decrypt");
         ButtonGroup b = new ButtonGroup();
         b.add(keywordR);
         b.add(transR);
@@ -34,7 +34,7 @@ public class View extends JFrame {
         b.add(shiftR);
 
         Container center = new Container();
-        center.setLayout(new GridLayout(5, 2, 5, 5));
+        center.setLayout(new GridLayout(6, 2, 5, 5));
         center.add(eingabe);
         center.add(secret);
         center.add(ausgabe);
@@ -44,6 +44,7 @@ public class View extends JFrame {
         center.add(shiftR);
         center.add(keywordR);
         center.add(transR);
+        center.add(cDecrypt);
 
 
         this.setLayout(new BorderLayout());
@@ -53,6 +54,8 @@ public class View extends JFrame {
         shiftR.addActionListener(c);
         secretR.addActionListener(c);
         bencrypt.addActionListener(c);
+        keywordR.addActionListener(c);
+        cDecrypt.addActionListener(c);
 
         this.setVisible(true);
     }
@@ -119,5 +122,29 @@ public class View extends JFrame {
 
     public void setcDecrypt(JCheckBox cDecrypt) {
         this.cDecrypt = cDecrypt;
+    }
+
+    public JTextField getKey() {
+        return key;
+    }
+
+    public void setKey(JTextField key) {
+        this.key = key;
+    }
+
+    public JRadioButton getKeywordR() {
+        return keywordR;
+    }
+
+    public void setKeywordR(JRadioButton keywordR) {
+        this.keywordR = keywordR;
+    }
+
+    public JRadioButton getTransR() {
+        return transR;
+    }
+
+    public void setTransR(JRadioButton transR) {
+        this.transR = transR;
     }
 }

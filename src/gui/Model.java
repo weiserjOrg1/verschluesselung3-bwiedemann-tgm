@@ -7,10 +7,19 @@ public class Model {
     private String eingabe;
     private int versch;
     private String fakeAlpha;
+    private String keyword;
     private MonoAlphabeticCipher vMethod;
 
     public Model(){
         this.vMethod = new SubstitutionCipher("QWERTZßÜAUIOPSKLÖDFGBNMHJÄYXCV");
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
     }
 
     public String getEingabe() {
