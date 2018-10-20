@@ -10,8 +10,8 @@ public class SubstitutionCipher extends MonoAlphabeticCipher {
 
     public static void main(String[] args) {
         SubstitutionCipher s = new SubstitutionCipher("QWERUIOPÜTZASDFXCVBNMßGHJKLÖÄY");
-        System.out.println("WiedemannBenni");
-        System.out.println(s.encrypt("WiedemannBenni"));
+        System.out.println("benni");
+        System.out.println(s.encrypt("benni"));
 
     }
 }
