@@ -52,7 +52,25 @@ public class TranspositionCipher implements Cipher {
     }
 
     public String encrypt(String text) {
-
-        return ("f");
+        text= text.replace(" ","");
+        String encrypt ="";
+        int zähler=0;
+        String[] space = new String[this.transpositionLevel];
+        for(int i=0;i<space.length;i++){
+            space[i]="";
+        }
+        for(int i = 0; i < text.length(); i++) {
+            int reset = zähler%this.transpositionLevel;
+            if(reset == 0) {
+                zähler = 0;
+            }
+            space[zähler] = space[zähler] + text.charAt(i);
+            zähler++;
+        }
+        for(int i = 0; i < space.length; i++) {
+            encrypt = encrypt + space[i] + " ";
+        }
+        return encrypt;
     }
+
 }
