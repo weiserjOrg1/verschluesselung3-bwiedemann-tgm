@@ -5,9 +5,9 @@ import java.awt.*;
 
 public class View extends JFrame {
     private JButton bencrypt;
-    private JTextField eingabe, secret, shift;
+    private JTextField eingabe, secret, shift, key;
     private JLabel ausgabe;
-    private JRadioButton secretR, shiftR;
+    private JRadioButton secretR, shiftR, keywordR, transR ;
     private JCheckBox cDecrypt;
 
     public View(Controller c) {
@@ -20,21 +20,31 @@ public class View extends JFrame {
         this.eingabe = new JTextField("eingabe");
         this.secret = new JTextField("eingabe");
         this.shift = new JTextField("eingabe");
+        this.key = new JTextField("key");
         this.ausgabe = new JLabel("ausgabe");
         this.secretR = new JRadioButton("secret");
         this.shiftR = new JRadioButton("shift");
+        this.keywordR = new JRadioButton("keyword");
+        this.transR = new JRadioButton("transposition");
+
         ButtonGroup b = new ButtonGroup();
+        b.add(keywordR);
+        b.add(transR);
         b.add(secretR);
         b.add(shiftR);
 
         Container center = new Container();
-        center.setLayout(new GridLayout(3, 2, 5, 5));
+        center.setLayout(new GridLayout(5, 2, 5, 5));
         center.add(eingabe);
         center.add(secret);
         center.add(ausgabe);
         center.add(shift);
+        center.add(key);
         center.add(secretR);
         center.add(shiftR);
+        center.add(keywordR);
+        center.add(transR);
+
 
         this.setLayout(new BorderLayout());
         this.add(bencrypt, BorderLayout.SOUTH);
