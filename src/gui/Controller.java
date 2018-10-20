@@ -36,6 +36,12 @@ public class Controller implements ActionListener {
             v.getSecret().setEnabled(false);
             v.getKey().setEnabled(true);
         }
+        if (v.getTransR() == e.getSource()) {
+            v.getShift().setEnabled(false);
+            v.getSecret().setEnabled(false);
+            v.getKey().setEnabled(false);
+            v.getLevel().setEnabled(true);
+        }
 
         if (v.getBencrypt() == e.getSource()) {
             if (this.v.getShiftR().isSelected()) {

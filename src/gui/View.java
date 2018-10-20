@@ -57,6 +57,7 @@ public class View extends JFrame {
         secretR.addActionListener(c);
         bencrypt.addActionListener(c);
         keywordR.addActionListener(c);
+        transR.addActionListener(c);
         cDecrypt.addActionListener(c);
 
         this.setVisible(true);
