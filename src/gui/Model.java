@@ -1,8 +1,7 @@
 package gui;
 
-import cipher.KeywordCipher;
-import cipher.MonoAlphabeticCipher;
-import cipher.SubstitutionCipher;
+import cipher.*;
+import cipher.Exception;
 
 public class Model {
     private String eingabe;
@@ -10,10 +9,24 @@ public class Model {
     private String fakeAlpha;
     private String keyword;
     private MonoAlphabeticCipher vMethod;
+    private TranspositionCipher t;
 
-    public Model(){
+
+    public Model() {
+
         this.vMethod = new SubstitutionCipher("QWERTZßÜAUIOPSKLÖDFGBNMHJÄYXCV");
+        try {
 
+            this.vMethod = new KeywordCipher("bra");
+        } catch (Exception e1) {
+
+        }
+        try {
+
+            this.t = new TranspositionCipher(2);
+        } catch (Exception eq) {
+
+        }
     }
 
     public String getKeyword() {
@@ -22,6 +35,14 @@ public class Model {
 
     public void setKeyword(String keyword) {
         this.keyword = keyword;
+    }
+
+    public TranspositionCipher getT() {
+        return t;
+    }
+
+    public void setT(TranspositionCipher t) {
+        this.t = t;
     }
 
     public String getEingabe() {

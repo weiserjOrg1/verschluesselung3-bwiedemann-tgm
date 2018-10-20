@@ -1,9 +1,7 @@
 package gui;
 
+import cipher.*;
 import cipher.Exception;
-import cipher.KeywordCipher;
-import cipher.ShiftCipher;
-import cipher.SubstitutionCipher;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -50,6 +48,12 @@ public class Controller implements ActionListener {
                     m.setvMethod(new KeywordCipher(v.getKey().getText()));
                 } catch (Exception e1) {
                     JOptionPane.showMessageDialog(null, "keyword Exception");
+                }
+            }else if(this.v.getTransR().isSelected()){
+                try {
+                    m.setT(new TranspositionCipher(Integer.parseInt(v.getLevel().getText())));
+                }catch (Exception ew){
+                    JOptionPane.showMessageDialog(null, "Its not a number");
                 }
             }
 

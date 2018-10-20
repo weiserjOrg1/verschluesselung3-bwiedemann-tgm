@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class View extends JFrame {
     private JButton bencrypt;
-    private JTextField eingabe, secret, shift, key;
+    private JTextField eingabe, secret, shift, key, level;
     private JLabel ausgabe;
     private JRadioButton secretR, shiftR, keywordR, transR ;
     private JCheckBox cDecrypt;
@@ -18,6 +18,7 @@ public class View extends JFrame {
 
         this.bencrypt = new JButton("Encrypt");
         this.eingabe = new JTextField("eingabe");
+        this.level = new JTextField("level");
         this.secret = new JTextField("eingabe");
         this.shift = new JTextField("eingabe");
         this.key = new JTextField("key");
@@ -40,6 +41,7 @@ public class View extends JFrame {
         center.add(ausgabe);
         center.add(shift);
         center.add(key);
+        center.add(level);
         center.add(secretR);
         center.add(shiftR);
         center.add(keywordR);
@@ -62,6 +64,14 @@ public class View extends JFrame {
 
     public JButton getBencrypt() {
         return bencrypt;
+    }
+
+    public JTextField getLevel() {
+        return level;
+    }
+
+    public void setLevel(JTextField level) {
+        this.level = level;
     }
 
     public void setBencrypt(JButton bencrypt) {
