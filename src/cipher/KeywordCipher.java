@@ -5,17 +5,18 @@ import java.security.Key;
 public class KeywordCipher extends MonoAlphabeticCipher {
     private String keyword;
     private String newAlphabet;
-    public KeywordCipher(String keyword){
+    public KeywordCipher(String keyword) throws Exception{
         this.keyword = "bra";
         creat(keyword);
     }
 
 
-    public void creat(String key){
-        if(this.keyword == key) {
+    public void creat(String key)throws Exception {
+        if (this.keyword == key) {
             this.setSecretAlphabet("QWERAUPSIOBNMHKLÖDFGJTZßÜÄYXCV");
+
         }else{
-            System.out.println("wrong");
+            throw new Exception();
         }
     }
 
@@ -29,9 +30,5 @@ public class KeywordCipher extends MonoAlphabeticCipher {
     }
 
 
-    public static void main(String[] args) {
-        KeywordCipher c = new KeywordCipher("bra");
-        System.out.println("benni");
-        System.out.println(c.encrypt("benni"));
-    }
+
 }
