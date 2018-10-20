@@ -2,6 +2,7 @@ package cipher;
 
 public class TranspositionCipher implements Cipher{
     private int transpositionLevel;
+    private String eingabe;
    public TranspositionCipher(int transpsitionLevel){
         this.transpositionLevel=transpsitionLevel;
    }
